@@ -1,0 +1,78 @@
+/*
+Assessment Requirements
+1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
+   The metadata values will be passed to the function as parameters. When the NFT is ready, 
+      you will store it in the variable you created in step 1
+      3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.name))
+      4. For good measure, getTotalSupply() should return the number of NFT's you have created
+      */
+
+      class NFT {
+          constructor(id, name, eyeColor, shirtType, bling, background, rarity) {
+                  this.id = id;
+                          this.name = name;
+                                  this.eyeColor = eyeColor;
+                                          this.shirtType = shirtType;
+                                                  this.bling = bling;
+                                                          this.background = background;
+                                                                  this.rarity = rarity;
+                                                                      }
+                                                                      }
+
+                                                                      // create a variable to hold your NFTs
+                                                                      class NFTCollection {
+                                                                          constructor() {
+                                                                                  this.collection = [];
+                                                                                          this.currentId = 1;
+                                                                                              }
+
+                                                                                                  // this function will take in some values as parameters, create an
+                                                                                                      // NFT object using the parameters passed to it for its metadata, 
+                                                                                                          // and store it in the variable above.
+                                                                                                              mintNFT(name, eyeColor, shirtType, bling, background, rarity) {
+                                                                                                                      const nft = new NFT(
+                                                                                                                                  this.currentId++,
+                                                                                                                                              name,
+                                                                                                                                                          eyeColor,
+                                                                                                                                                                      shirtType,
+                                                                                                                                                                                  bling,
+                                                                                                                                                                                              background,
+                                                                                                                                                                                                          rarity
+                                                                                                                                                                                                                  );
+                                                                                                                                                                                                                          this.collection.push(nft);
+                                                                                                                                                                                                                              }
+
+                                                                                                                                                                                                                                  // create a "loop" that will go through an "array" of NFTs
+                                                                                                                                                                                                                                      // and print their metadata with console.log()
+                                                                                                                                                                                                                                          listNFTs() {
+                                                                                                                                                                                                                                                  this.collection.forEach(nft => {
+                                                                                                                                                                                                                                                              console.log(`NFT ID: ${nft.id}`);
+                                                                                                                                                                                                                                                                          console.log(`Name: ${nft.name}`);
+                                                                                                                                                                                                                                                                                      console.log(`Eye Color: ${nft.eyeColor}`);
+                                                                                                                                                                                                                                                                                                  console.log(`Shirt Type: ${nft.shirtType}`);
+                                                                                                                                                                                                                                                                                                              console.log(`Bling: ${nft.bling}`);
+                                                                                                                                                                                                                                                                                                                          console.log(`Background: ${nft.background}`);
+                                                                                                                                                                                                                                                                                                                                      console.log(`Rarity: ${nft.rarity}`);
+                                                                                                                                                                                                                                                                                                                                                  console.log('---------------------');
+                                                                                                                                                                                                                                                                                                                                                          });
+                                                                                                                                                                                                                                                                                                                                                              }
+
+                                                                                                                                                                                                                                                                                                                                                                  // print the total number of NFTs we have minted to the console
+                                                                                                                                                                                                                                                                                                                                                                      getTotalSupply() {
+                                                                                                                                                                                                                                                                                                                                                                              return this.collection.length;
+                                                                                                                                                                                                                                                                                                                                                                                  }
+                                                                                                                                                                                                                                                                                                                                                                                  }
+
+                                                                                                                                                                                                                                                                                                                                                                                  // call your functions below this line
+                                                                                                                                                                                                                                                                                                                                                                                  const myNFTCollection = new NFTCollection();
+                                                                                                                                                                                                                                                                                                                                                                                  myNFTCollection.mintNFT("Epic Dragon", "Red", "Armor", "Gold Chain", "Mountain", "Rare");
+                                                                                                                                                                                                                                                                                                                                                                                  myNFTCollection.mintNFT("Mystic Unicorn", "Blue", "Dress", "Silver Necklace", "Forest", "Legendary");
+                                                                                                                                                                                                                                                                                                                                                                                  myNFTCollection.mintNFT("Cosmic Tiger", "Green", "Jacket", "Diamond Earring", "Space", "Common");
+
+                                                                                                                                                                                                                                                                                                                                                                                  // List all NFTs
+                                                                                                                                                                                                                                                                                                                                                                                  myNFTCollection.listNFTs();
+
+                                                                                                                                                                                                                                                                                                                                                                                  // Print the total supply of NFTs
+                                                                                                                                                                                                                                                                                                                                                                                  console.log("Total Supply: " + myNFTCollection.getTotalSupply());
+                                                                                                                                                                                                                                                                                                                                                                                  
